@@ -131,6 +131,11 @@ section{ padding-block: clamp(52px, 8vw, 100px); }
 }
 .icon-link:hover{ transform: translateY(-2px); }
 .icon-link svg{ width: 18px; height: 18px; }
+.icon-link-instagram{
+  background: linear-gradient(135deg,#f5c26b,#e8734a 45%,#c23f8e 75%,#7a3ec2);
+  color:#fff; box-shadow: 0 6px 16px -6px rgba(194,63,142,.55);
+}
+.icon-link-instagram:hover{ transform: translateY(-2px) scale(1.05); }
 
 .nav-toggle{
   display:none; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line);
