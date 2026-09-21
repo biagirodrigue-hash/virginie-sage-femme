@@ -1,5 +1,5 @@
 [build]
-  command = "npx @11ty/eleventy"
+  command = "npm ci && npx @11ty/eleventy"
   publish = "_site"
 
 [build.environment]
