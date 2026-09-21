@@ -1,0 +1,78 @@
+{
+  "services": [
+    {
+      "id": "preparation",
+      "badge": "Préparation globale",
+      "title": "Préparation à la naissance",
+      "summary": "Ateliers individuels ou en couple pour aborder l'accouchement avec confiance et sérénité.",
+      "detail": "Des séances individuelles ou en couple pour aborder l'accouchement avec plus de confiance : respiration, positions, gestion de la douleur, déroulement du travail et premiers réflexes avec bébé.",
+      "points": [
+        "Séances individuelles ou en couple",
+        "Adaptées à votre projet de naissance",
+        "À domicile ou en cabinet"
+      ],
+      "icon": "coeur"
+    },
+    {
+      "id": "consultations",
+      "badge": "Suivi de grossesse",
+      "title": "Consultations prénatales",
+      "summary": "Suivi régulier de votre grossesse : écoute du bébé, examens de routine, conseils personnalisés.",
+      "detail": "Un suivi régulier de votre grossesse : contrôles de routine, écoute du cœur de bébé, réponses à vos questions et orientation si besoin vers un·e spécialiste.",
+      "points": [
+        "Suivi médical de la grossesse",
+        "Temps d'échange et de conseils",
+        "Orientation si nécessaire"
+      ],
+      "icon": "carnet"
+    },
+    {
+      "id": "allaitement",
+      "badge": "Soutien à l'allaitement",
+      "title": "Accompagnement à l'allaitement",
+      "summary": "Un accompagnement individualisé, avant et après la naissance, pour un allaitement serein.",
+      "detail": "Avant la naissance pour vous préparer, après pour vous soutenir : positions, mise au sein, gestion des difficultés courantes — un accompagnement individualisé, sans pression, quel que soit votre choix.",
+      "points": [
+        "Préparation avant la naissance",
+        "Suivi après l'accouchement",
+        "Aucun jugement sur vos choix"
+      ],
+      "icon": "coeur"
+    },
+    {
+      "id": "post-natal",
+      "badge": "Retour à la maison",
+      "title": "Suivi post-natal",
+      "summary": "Des visites à domicile pour accompagner le retour à la maison de vous et votre bébé.",
+      "detail": "Des visites à domicile dans les jours et semaines suivant la naissance : contrôle de votre récupération, suivi du poids et de la santé de bébé, accompagnement dans les premiers gestes du quotidien.",
+      "points": [
+        "Visites à domicile",
+        "Suivi de la maman et du bébé",
+        "Écoute sur le vécu de l'accouchement"
+      ],
+      "icon": "croissance"
+    },
+    {
+      "id": "accompagnement",
+      "badge": "Présence continue",
+      "title": "Accompagnement à la naissance",
+      "summary": "Une présence continue pendant le travail et l'accouchement, en complément de l'équipe médicale.",
+      "detail": "Une présence rassurante pendant le travail et l'accouchement, en complément de l'équipe médicale, pour vous soutenir physiquement et émotionnellement à chaque contraction.",
+      "points": [],
+      "icon": "etoile"
+    },
+    {
+      "id": "massages",
+      "badge": "Bien-être",
+      "title": "Massages pré et post-natal",
+      "summary": "Des soins doux pensés pour soulager le corps à chaque étape de la maternité.",
+      "detail": "Des soins doux, pensés pour soulager les tensions du corps pendant la grossesse et faciliter la récupération après l'accouchement.",
+      "points": [
+        "Adapté à chaque trimestre",
+        "Soulage dos, jambes et tensions",
+        "Moment de détente pour vous"
+      ],
+      "icon": "fleur"
+    }
+  ]
+}

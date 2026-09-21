@@ -1,0 +1,61 @@
+---
+layout: base.njk
+title: Prestations
+description: "Préparation à la naissance, consultations prénatales, soutien à l'allaitement, suivi post-natal, accompagnement à la naissance et massages pré/post-nataux avec Virginie Biagi, sage-femme indépendante."
+breadcrumb: Prestations
+---
+{% import "icons.njk" as icons %}
+<section class="page-hero container">
+  <p class="eyebrow">Prestations</p>
+  <h1>Un accompagnement complet, à chaque étape</h1>
+  <p class="lede">De la préparation à la naissance jusqu'aux premières semaines après l'accouchement, chaque prestation peut se dérouler à domicile ou en cabinet, selon ce qui vous convient le mieux.</p>
+</section>
+
+<section class="container section-tight">
+  <div class="grid grid-3">
+    {% for s in services %}
+    <a href="#{{ s.id }}" class="card card-service" style="text-decoration:none;">
+      <span class="ico">{{ icons.icon(s.icon) }}</span>
+      <h3>{{ s.title }}</h3>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% for s in services %}
+<section id="{{ s.id }}" class="container">
+  <div class="split {% if loop.index0 is even %}{% else %}reverse{% endif %}">
+    <div class="split-visual"><div class="ph"></div></div>
+    <div>
+      <span class="badge-pill">{{ s.badge }}</span>
+      <h2>{{ s.title }}</h2>
+      <p>{{ s.detail }}</p>
+      {% if s.points.length %}
+      <ul class="tick-list">
+        {% for p in s.points %}<li>{{ icons.icon("coche") }} {{ p }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+      <a href="/contact/" class="btn btn-outline">Prendre rendez-vous</a>
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<section class="container">
+  <div class="note-box" style="max-width:70ch;margin-inline:auto;">
+    <strong>Tarifs :</strong> <span class="placeholder-flag">{{ prestations.tarifsNote }}</span>
+  </div>
+</section>
+
+<section class="container">
+  <div class="cta-band">
+    <div>
+      <h2>Une question sur une prestation&nbsp;?</h2>
+      <p>Écrivez-moi ou appelez-moi, je réponds avec plaisir à toutes vos questions.</p>
+    </div>
+    <div class="actions">
+      <a href="/contact/" class="btn btn-primary">Prendre rendez-vous</a>
+      <a href="{{ site.whatsapp }}" target="_blank" rel="noopener" class="btn btn-ghost">Écrire sur WhatsApp</a>
+    </div>
+  </div>
+</section>

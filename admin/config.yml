@@ -1,0 +1,169 @@
+# Configuration du back-office (Decap CMS)
+# Documentation complète : https://decapcms.org/docs/configuration-options/
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Où sont stockées les images ajoutées depuis le back-office
+media_folder: "src/images/uploads"
+public_folder: "/images/uploads"
+
+# Génère un site de prévisualisation local pendant l'édition (facultatif)
+local_backend: true
+
+collections:
+
+  # ---------------------------------------------------------------
+  # 1. Réglages généraux du cabinet (téléphone, adresse, réseaux...)
+  # ---------------------------------------------------------------
+  - name: "reglages"
+    label: "Réglages du site"
+    files:
+
+      - name: "coordonnees"
+        label: "Coordonnées du cabinet"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Nom affiché", name: "brandName", widget: "string" }
+          - { label: "Slogan / sous-titre", name: "tagline", widget: "string" }
+          - { label: "Téléphone (affiché)", name: "phone", widget: "string", hint: "Ex : 0495 85 58 61" }
+          - { label: "Téléphone (format lien, ex. +32495855861)", name: "phoneHref", widget: "string" }
+          - { label: "E-mail", name: "email", widget: "string" }
+          - { label: "Adresse du cabinet", name: "address", widget: "string" }
+          - { label: "Adresse pour Google Maps (sans espaces, + à la place)", name: "mapsQuery", widget: "string" }
+          - { label: "Lien Instagram", name: "instagram", widget: "string" }
+          - { label: "Pseudo Instagram affiché", name: "instagramHandle", widget: "string" }
+          - { label: "Lien WhatsApp (https://wa.me/...)", name: "whatsapp", widget: "string" }
+
+      - name: "accueil"
+        label: "Page d'accueil"
+        file: "src/_data/home.json"
+        fields:
+          - { label: "Petit texte au-dessus du titre", name: "heroEyebrow", widget: "string" }
+          - { label: "Titre principal", name: "heroTitle", widget: "string" }
+          - { label: "Texte d'introduction", name: "heroLede", widget: "text" }
+          - { label: "Photo dans la bulle d'accueil", name: "heroImage", widget: "image" }
+          - label: "Points de confiance (sous le titre)"
+            name: "heroTrust"
+            widget: "list"
+            field: { label: "Point", name: "item", widget: "string" }
+          - { label: "Nombre d'années d'expérience (ex. « 8 ans »)", name: "yearsExperience", widget: "string" }
+          - { label: "Photo — section « Qui suis-je »", name: "aboutImage", widget: "image" }
+          - { label: "Texte — section « Qui suis-je »", name: "aboutText", widget: "text" }
+          - { label: "Photo — section Instagram", name: "instagramImage", widget: "image" }
+          - { label: "Texte — section Instagram", name: "instagramText", widget: "text" }
+          - { label: "Titre du bandeau final", name: "ctaTitle", widget: "string" }
+          - { label: "Texte du bandeau final", name: "ctaText", widget: "text" }
+
+      - name: "qui-suis-je"
+        label: "Page « Qui suis-je »"
+        file: "src/_data/about.json"
+        fields:
+          - { label: "Texte sous le titre", name: "heroLede", widget: "text" }
+          - { label: "Photo portrait", name: "portraitImage", widget: "image" }
+          - { label: "Petit texte au-dessus du sous-titre", name: "introEyebrow", widget: "string" }
+          - { label: "Sous-titre", name: "introTitle", widget: "string" }
+          - label: "Texte de présentation"
+            name: "bioText"
+            widget: "text"
+            hint: "Pour créer un nouveau paragraphe, laissez une ligne complètement vide entre deux paragraphes."
+          - { label: "Texte — déontologie", name: "deontologyText", widget: "text" }
+
+      - name: "contact"
+        label: "Page Contact"
+        file: "src/_data/contact.json"
+        fields:
+          - { label: "Texte sous le titre", name: "heroLede", widget: "text" }
+          - { label: "Horaires (ex. « 9h à 18h »)", name: "hoursNote", widget: "string" }
+          - { label: "Précision sous l'adresse", name: "addressNote", widget: "string" }
+          - { label: "Note sous le formulaire", name: "formNote", widget: "text" }
+
+      - name: "prestations-note"
+        label: "Page Prestations — note tarifs"
+        file: "src/_data/prestations.json"
+        fields:
+          - { label: "Note sur les tarifs", name: "tarifsNote", widget: "text" }
+
+  # ---------------------------------------------------------------
+  # 2. Prestations (les 6 cartes de services)
+  # ---------------------------------------------------------------
+  - name: "prestations"
+    label: "Prestations (liste des services)"
+    files:
+      - name: "liste-prestations"
+        label: "Liste des prestations"
+        file: "src/_data/services-data.json"
+        fields:
+          - label: "Prestations"
+            name: "services"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Identifiant technique (sans espace ni accent, ex. « massages »)", name: "id", widget: "string" }
+              - { label: "Petit badge au-dessus du titre", name: "badge", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Résumé (page d'accueil)", name: "summary", widget: "text" }
+              - { label: "Description complète (page Prestations)", name: "detail", widget: "text" }
+              - label: "Points listés"
+                name: "points"
+                widget: "list"
+                field: { label: "Point", name: "item", widget: "string" }
+                required: false
+              - label: "Icône"
+                name: "icon"
+                widget: "select"
+                options: ["coeur", "carnet", "croissance", "etoile", "fleur", "bouclier", "horloge", "diplome"]
+
+  # ---------------------------------------------------------------
+  # 3. Articles de blog
+  # ---------------------------------------------------------------
+  - name: "blog"
+    label: "Articles du blog"
+    folder: "src/blog"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "title"
+    fields:
+      - { label: "Modèle de page", name: "layout", widget: "hidden", default: "post.njk" }
+      - { label: "Titre de l'article", name: "title", widget: "string" }
+      - { label: "Date de publication", name: "date", widget: "datetime" }
+      - label: "Catégorie"
+        name: "category"
+        widget: "select"
+        options: ["Grossesse", "Accouchement", "Allaitement", "Post-partum"]
+      - { label: "Résumé (affiché sur la liste des articles)", name: "excerpt", widget: "text" }
+      - { label: "Temps de lecture (ex. « 5 min »)", name: "readTime", widget: "string", required: false }
+      - { label: "Image de couverture", name: "cover", widget: "image", required: false }
+      - { label: "Contenu de l'article", name: "body", widget: "markdown" }
+
+  # ---------------------------------------------------------------
+  # 4. Pages légales
+  # ---------------------------------------------------------------
+  - name: "legal"
+    label: "Pages légales"
+    files:
+
+      - name: "mentions-legales"
+        label: "Mentions légales"
+        file: "src/mentions-legales.md"
+        fields:
+          - { label: "Modèle de page", name: "layout", widget: "hidden", default: "legal.njk" }
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Petit texte au-dessus du titre", name: "eyebrow", widget: "string" }
+          - { label: "Description (SEO)", name: "description", widget: "string" }
+          - { label: "Fil d'Ariane", name: "breadcrumb", widget: "string" }
+          - { label: "Introduction", name: "intro", widget: "text", required: false }
+          - { label: "Contenu", name: "body", widget: "markdown" }
+
+      - name: "confidentialite"
+        label: "Politique de confidentialité (RGPD)"
+        file: "src/confidentialite.md"
+        fields:
+          - { label: "Modèle de page", name: "layout", widget: "hidden", default: "legal.njk" }
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Petit texte au-dessus du titre", name: "eyebrow", widget: "string" }
+          - { label: "Description (SEO)", name: "description", widget: "string" }
+          - { label: "Fil d'Ariane", name: "breadcrumb", widget: "string" }
+          - { label: "Introduction", name: "intro", widget: "text", required: false }
+          - { label: "Contenu", name: "body", widget: "markdown" }

@@ -1,0 +1,12 @@
+[build]
+  command = "npx @11ty/eleventy"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Redirection propre pour le back-office (au cas où)
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200

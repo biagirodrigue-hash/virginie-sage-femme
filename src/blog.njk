@@ -1,0 +1,40 @@
+---
+layout: base.njk
+title: Blog
+description: "Conseils de sage-femme sur la grossesse, l'accouchement, l'allaitement et le post-partum, par Virginie Biagi, sage-femme indépendante."
+breadcrumb: Blog
+---
+<section class="page-hero container">
+  <p class="eyebrow">Blog</p>
+  <h1>Conseils autour de la maternité</h1>
+  <p class="lede">Grossesse, accouchement, allaitement, post-partum : des articles pensés pour vous informer et vous rassurer entre deux rendez-vous. Cet espace est conçu pour grandir au fil des mois.</p>
+</section>
+
+<section class="container section-tight">
+  <div style="display:flex;gap:.6em;flex-wrap:wrap;">
+    <span class="badge-pill">Toutes les catégories</span>
+    <span class="badge-pill" style="background:var(--blush-soft);color:var(--ink);">Grossesse</span>
+    <span class="badge-pill" style="background:var(--blush-soft);color:var(--ink);">Accouchement</span>
+    <span class="badge-pill" style="background:var(--blush-soft);color:var(--ink);">Allaitement</span>
+    <span class="badge-pill" style="background:var(--blush-soft);color:var(--ink);">Post-partum</span>
+  </div>
+</section>
+
+<section class="container">
+  <div class="grid grid-3">
+    {% for post in collections.blogPosts %}
+    <a class="blog-card" href="{{ post.url }}" style="text-decoration:none;color:inherit;">
+      <div class="thumb" {% if post.data.cover %}style="background-image:url('{{ post.data.cover }}');background-size:cover;background-position:center;"{% endif %}></div>
+      <div class="body">
+        <span class="meta">{{ post.data.category }} · {{ post.data.readTime or "5 min" }} de lecture</span>
+        <h3>{{ post.data.title }}</h3>
+        <p>{{ post.data.excerpt }}</p>
+        <span class="card-link" style="color:var(--sage-deep);font-weight:600;font-size:.9rem;">Lire l'article →</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  <div class="note-box" style="margin-top:34px;">
+    Cet espace Blog est structurant pour le référencement local (SEO) : chaque nouvel article ciblera une question fréquente des futures ou jeunes mamans de votre région. Un rythme d'un article toutes les 2 à 3 semaines est un bon objectif de départ. Pour publier un nouvel article : bouton « New Blog Post » dans le back-office.
+  </div>
+</section>

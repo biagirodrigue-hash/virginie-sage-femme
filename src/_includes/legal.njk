@@ -1,0 +1,12 @@
+---
+layout: base.njk
+---
+<section class="page-hero container">
+  <p class="eyebrow">{{ eyebrow }}</p>
+  <h1>{{ title }}</h1>
+  {% if intro %}<p class="lede">{{ intro }}</p>{% endif %}
+</section>
+
+<section class="container legal">
+  {{ content | safe }}
+</section>

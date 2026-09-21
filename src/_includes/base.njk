@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ title }}{% if title != site.brandName %} — {{ site.brandName }}{% endif %}</title>
+<meta name="description" content="{{ description }}">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Jost:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/styles.css">
+{% block head %}{% endblock %}
+<!-- Netlify Identity : nécessaire pour que le lien d'invitation reçu par
+     e-mail (pour se connecter au back-office) fonctionne correctement,
+     quelle que soit la page sur laquelle il arrive. -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+</head>
+<body>
+
+{% include "header.njk" %}
+
+{% if breadcrumb %}
+<div class="container">
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <a href="/">Accueil</a><span class="sep">›</span>{% if breadcrumb2 %}<a href="{{ breadcrumb2url }}">{{ breadcrumb2 }}</a><span class="sep">›</span>{% endif %}<span class="current">{{ breadcrumb }}</span>
+  </nav>
+</div>
+{% endif %}
+
+<main>
+{{ content | safe }}
+</main>
+
+{% include "footer.njk" %}
+
+<a href="{{ site.whatsapp }}" target="_blank" rel="noopener" class="whatsapp-bubble" aria-label="Contacter {{ site.brandName }} sur WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.4.66 4.64 1.9 6.6L4 29l7.56-1.98a11.9 11.9 0 0 0 4.46.86h.01c6.62 0 12.02-5.4 12.02-12.02C28.04 8.4 22.65 3 16.02 3zm5.4 17.48c-.3-.15-1.76-.86-2.03-.96-.27-.1-.47-.15-.67.15-.2.3-.76.96-.94 1.16-.17.2-.35.22-.65.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.79.37s-1.04 1.02-1.04 2.48 1.06 2.88 1.21 3.08c.15.2 2.09 3.2 5.07 4.48.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.42.25-.7.25-1.3.18-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+</a>
+
+<script src="/script.js" defer></script>
+</body>
+</html>

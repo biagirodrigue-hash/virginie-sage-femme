@@ -1,0 +1,101 @@
+---
+layout: base.njk
+title: Contact
+description: "Contactez Virginie Biagi, sage-femme indépendante, pour prendre rendez-vous ou poser une question : téléphone, WhatsApp, e-mail ou formulaire de contact."
+breadcrumb: Contact
+---
+{% import "icons.njk" as icons %}
+<section class="page-hero container">
+  <p class="eyebrow">Contact</p>
+  <h1>Parlons de votre grossesse</h1>
+  <p class="lede">{{ contact.heroLede }}</p>
+</section>
+
+<section class="container section-tight">
+  <div class="info-tiles">
+    <div class="info-tile">
+      <span class="ico">{{ icons.icon("telephone") }}</span>
+      <h3>Téléphone</h3>
+      <p>Du lundi au vendredi, <span class="placeholder-flag">{{ contact.hoursNote }}</span></p>
+      <a href="tel:{{ site.phoneHref }}">{{ site.phone }}</a>
+    </div>
+    <div class="info-tile">
+      <span class="ico">{{ icons.icon("mail") }}</span>
+      <h3>E-mail</h3>
+      <p>Réponse sous 24 à 48h</p>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+    </div>
+    <div class="info-tile">
+      <span class="ico">{{ icons.icon("pin") }}</span>
+      <h3>Cabinet</h3>
+      <p>{{ site.address }}</p>
+      <p style="font-size:.85rem;color:var(--ink-soft);margin:0 0 .5em;">{{ contact.addressNote }}</p>
+      <a href="https://www.google.com/maps/search/?api=1&query={{ site.mapsQuery }}" target="_blank" rel="noopener" style="font-size:.85rem;">Voir l'itinéraire →</a>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="split">
+    <div>
+      <p class="eyebrow">Écrivez-moi</p>
+      <h2>Formulaire de contact</h2>
+      <p class="lede">Ce formulaire n'est pas encore relié à un outil de prise de rendez-vous en ligne : il ouvre votre messagerie avec un message pré-rempli, prêt à envoyer.</p>
+
+      <form id="contact-form" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="nom">Nom et prénom</label>
+            <input type="text" id="nom" name="nom" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="telephone">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone" autocomplete="tel">
+          </div>
+          <div class="field full">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field full">
+            <label for="sujet">Sujet</label>
+            <select id="sujet" name="sujet">
+              <option>Prise de rendez-vous</option>
+              <option>Question sur une prestation</option>
+              <option>Demande d'information générale</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="message">Votre message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Parlez-moi un peu de votre grossesse, de vos besoins ou de vos questions…" required></textarea>
+          </div>
+          <div class="field full">
+            <label class="consent">
+              <input type="checkbox" required>
+              <span>J'accepte que les informations transmises via ce formulaire soient utilisées par {{ site.brandName }} dans le seul but de répondre à ma demande. Voir la <a href="/confidentialite/">politique de confidentialité</a>.</span>
+            </label>
+          </div>
+          <div class="field full">
+            <button type="submit" class="btn btn-primary btn-block">Envoyer le message</button>
+          </div>
+          <div class="field full">
+            <p id="form-status" class="form-status" role="status"></p>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div>
+      <div class="card" style="margin-bottom:22px;">
+        <span class="ico">{{ icons.icon("whatsapp") }}</span>
+        <h3>Plus rapide : WhatsApp</h3>
+        <p>Pour une réponse plus rapide, écrivez-moi directement sur WhatsApp.</p>
+        <a href="{{ site.whatsapp }}" target="_blank" rel="noopener" class="btn btn-outline btn-block">Ouvrir WhatsApp</a>
+      </div>
+      <div class="form-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width:20px;height:20px;flex-shrink:0;"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <span>{{ contact.formNote }}</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,80 @@
+---
+layout: base.njk
+title: Qui suis-je
+description: "Découvrez le parcours, la philosophie d'accompagnement et les engagements déontologiques de Virginie Biagi, sage-femme indépendante."
+breadcrumb: Qui suis-je
+---
+{% import "icons.njk" as icons %}
+<section class="page-hero container">
+  <p class="eyebrow">Qui suis-je</p>
+  <h1>Virginie Biagi, sage-femme indépendante</h1>
+  <p class="lede">{{ about.heroLede }}</p>
+</section>
+
+<section class="container">
+  <div class="split">
+    <div class="split-visual" style="max-width:340px;">
+      <img src="{{ about.portraitImage }}" alt="Virginie Biagi, sage-femme" loading="lazy" style="aspect-ratio:718/1746;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);">
+    </div>
+    <div>
+      <p class="eyebrow">{{ about.introEyebrow }}</p>
+      <h2>{{ about.introTitle }}</h2>
+      {% for paragraph in about.bioText.split("\n\n") %}<p>{{ paragraph }}</p>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="text-center max-w mx-auto">
+    <p class="eyebrow" style="justify-content:center">Ma philosophie</p>
+    <h2>Un accompagnement centré sur vous</h2>
+  </div>
+  <div class="grid grid-3" style="margin-top:32px;">
+    <div class="card">
+      <span class="ico">{{ icons.icon("coeur") }}</span>
+      <h3>Écoute sans jugement</h3>
+      <p>Chaque parcours, chaque histoire et chaque choix sont accueillis avec respect, quels qu'ils soient.</p>
+    </div>
+    <div class="card">
+      <span class="ico">{{ icons.icon("bouclier") }}</span>
+      <h3>Confidentialité totale</h3>
+      <p>Le secret professionnel s'applique à chaque échange, sans exception.</p>
+    </div>
+    <div class="card">
+      <span class="ico">{{ icons.icon("coche") }}</span>
+      <h3>Choix informé et respecté</h3>
+      <p>Vous recevez une information claire et complète, pour décider en toute confiance.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="split reverse">
+    <div class="split-visual">
+      <img src="/images/mains-bebe.jpg" alt="" loading="lazy">
+    </div>
+    <div>
+      <p class="eyebrow">Déontologie</p>
+      <h2>Un cadre professionnel rassurant</h2>
+      <p>{{ about.deontologyText }}</p>
+      <ul class="tick-list">
+        <li>{{ icons.icon("coche") }} Diplôme d'État et formation continue</li>
+        <li>{{ icons.icon("coche") }} Assurance responsabilité civile professionnelle</li>
+        <li>{{ icons.icon("coche") }} Respect du secret professionnel</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="cta-band">
+    <div>
+      <h2>Envie d'échanger&nbsp;?</h2>
+      <p>Un premier contact, sans engagement, pour parler de votre grossesse et de vos besoins.</p>
+    </div>
+    <div class="actions">
+      <a href="/contact/" class="btn btn-primary">Prendre rendez-vous</a>
+      <a href="/prestations/" class="btn btn-ghost">Voir les prestations</a>
+    </div>
+  </div>
+</section>

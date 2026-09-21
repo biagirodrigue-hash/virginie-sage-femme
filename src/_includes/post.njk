@@ -1,0 +1,39 @@
+---
+layout: base.njk
+---
+<div class="container">
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <a href="/">Accueil</a><span class="sep">›</span><a href="/blog/">Blog</a><span class="sep">›</span><span class="current">{{ title }}</span>
+  </nav>
+</div>
+<article class="container" style="padding-block: 10px 60px;">
+  <div class="article-body">
+    <span class="badge-pill">{{ category }}</span>
+    <h1 style="margin-top:.4em;">{{ title }}</h1>
+    <p style="color:var(--ink-soft);font-size:.9rem;">Par Virginie Biagi, sage-femme · {{ readTime or "5 min" }} de lecture</p>
+  </div>
+  {% if cover %}
+  <div class="split-visual" style="max-width:72ch;margin:20px auto 30px;">
+    <img src="{{ cover }}" alt="" loading="lazy" style="aspect-ratio:16/9;object-fit:cover;">
+  </div>
+  {% endif %}
+  <div class="article-body">
+    {{ content | safe }}
+  </div>
+  <div class="author-box">
+    <div class="ph"></div>
+    <div>
+      <strong style="color:var(--sage-deep);font-family:'Fraunces',serif;">Virginie Biagi</strong>
+      <p style="margin:.2em 0 0;font-size:.9rem;color:var(--ink-soft);">Sage-femme indépendante — <a href="/a-propos/" style="color:var(--sage-deep);">en savoir plus sur mon parcours</a></p>
+    </div>
+  </div>
+  <div class="cta-band" style="max-width:72ch;margin:40px auto 0;">
+    <div>
+      <h2>Une question sur votre grossesse&nbsp;?</h2>
+      <p>Prenons le temps d'en parler ensemble, lors d'une consultation.</p>
+    </div>
+    <div class="actions">
+      <a href="/contact/" class="btn btn-primary">Prendre rendez-vous</a>
+    </div>
+  </div>
+</article>
